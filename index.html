@@ -1,0 +1,563 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#bcebd0">
+  <title>Dunia Pintar - Nasya</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --green: #319b68;
+      --dark: #294b3b;
+      --pale: #f1fbf5;
+      --mint: #bcebd0;
+      --pink: #ffe4ef;
+      --yellow: #fff0b8;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Trebuchet MS", Arial, sans-serif;
+      background: var(--pale);
+      color: var(--dark);
+    }
+
+    header {
+      background: var(--mint);
+      padding: 16px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      box-shadow: 0 2px 10px #244b3210;
+    }
+
+    .logo {
+      font-size: clamp(21px, 4vw, 28px);
+      font-weight: 800;
+    }
+
+    .stats {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .pill {
+      background: white;
+      border-radius: 999px;
+      padding: 9px 13px;
+      font-weight: 700;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 22px;
+    }
+
+    .welcome {
+      background: linear-gradient(120deg, var(--yellow), var(--pink));
+      border-radius: 24px;
+      padding: 24px;
+      margin-bottom: 22px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .mascot {
+      font-size: clamp(42px, 8vw, 68px);
+    }
+
+    h1 {
+      font-size: clamp(25px, 5vw, 36px);
+      margin: 4px 0 8px;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    .menu-title {
+      margin: 25px 0 14px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(205px, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 19px;
+      box-shadow: 0 5px 18px #244b3210;
+      border: 1px solid #e3f3e9;
+    }
+
+    .menu-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      min-height: 175px;
+    }
+
+    .emoji {
+      font-size: 36px;
+    }
+
+    .menu-card p {
+      flex: 1;
+      margin-top: 8px;
+    }
+
+    button {
+      border: 0;
+      background: var(--green);
+      color: white;
+      padding: 11px 15px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+
+    button:hover {
+      filter: brightness(.94);
+    }
+
+    button:disabled {
+      opacity: .6;
+      cursor: not-allowed;
+    }
+
+    button:focus-visible {
+      outline: 3px solid #f2bf43;
+      outline-offset: 3px;
+    }
+
+    .lesson {
+      margin-top: 22px;
+      min-height: 160px;
+    }
+
+    .progress {
+      height: 10px;
+      background: #e7f3eb;
+      border-radius: 99px;
+      overflow: hidden;
+      margin: 12px 0 18px;
+    }
+
+    .progress span {
+      display: block;
+      height: 100%;
+      background: #4fba82;
+      border-radius: 99px;
+      transition: width .25s;
+    }
+
+    .tip {
+      background: #f0fbf4;
+      border: 1px solid #d7f0e0;
+      border-radius: 14px;
+      padding: 13px;
+      margin: 12px 0;
+    }
+
+    .answer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+      gap: 10px;
+      margin: 16px 0;
+    }
+
+    .answer {
+      background: white;
+      color: var(--dark);
+      border: 2px solid #d6ecdf;
+      margin: 0;
+      min-height: 48px;
+    }
+
+    .answer:hover {
+      background: #f3fff7;
+    }
+
+    .answer.correct {
+      background: #d9f8e4;
+      border-color: #39a76b;
+      color: #205c3b;
+    }
+
+    .answer.wrong {
+      background: #ffe5e5;
+      border-color: #e89b9b;
+      color: #873b3b;
+    }
+
+    .feedback {
+      font-weight: 700;
+      line-height: 1.5;
+      margin: 12px 0;
+      min-height: 22px;
+    }
+
+    .mission {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin: 14px 0;
+      line-height: 1.5;
+    }
+
+    .mission input {
+      width: auto;
+      margin-top: 5px;
+      transform: scale(1.15);
+    }
+
+    input, select {
+      padding: 12px;
+      border: 2px solid #c7e8d3;
+      border-radius: 10px;
+      width: 100%;
+      margin: 8px 0;
+      font-size: 16px;
+      background: white;
+      color: var(--dark);
+    }
+
+    label {
+      font-weight: 600;
+    }
+
+    .row-item {
+      background: #f7fcf8;
+      border: 1px solid #e0f1e6;
+      border-radius: 14px;
+      padding: 14px;
+      margin: 12px 0;
+    }
+
+    .code {
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      background: #24372d;
+      color: #e9ffef;
+      padding: 14px;
+      border-radius: 12px;
+      overflow: auto;
+    }
+
+    .celebration {
+      text-align: center;
+      padding: 18px 4px;
+    }
+
+    .celebration-emoji {
+      font-size: 48px;
+    }
+
+    .score-card {
+      background: #fff7d7;
+      padding: 18px;
+      border-radius: 18px;
+      max-width: 420px;
+      margin: 16px auto;
+    }
+
+    .big-score {
+      font-size: 42px;
+      font-weight: 800;
+    }
+
+    .reward-stars {
+      font-size: 24px;
+      overflow-wrap: anywhere;
+    }
+
+    .confetti-container {
+      pointer-events: none;
+    }
+
+    .small, .muted {
+      color: #63776a;
+      font-size: 14px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #63776a;
+    }
+
+    @media (max-width: 520px) {
+      main {
+        padding: 14px;
+      }
+
+      .welcome {
+        padding: 18px;
+        align-items: flex-start;
+      }
+
+      .cards {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .menu-card {
+        padding: 14px;
+        min-height: 185px;
+      }
+
+      .menu-card button {
+        width: 100%;
+        padding: 10px 7px;
+        font-size: 13px;
+      }
+
+      .stats {
+        width: 100%;
+      }
+
+      .pill {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">🌈 Dunia Pintar</div>
+
+    <div class="stats">
+      <div class="pill">
+        ⭐ Bintang: <span id="starCount">0</span>
+      </div>
+
+      <div class="pill">
+        🏅 Level: <span id="level">1</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="welcome">
+      <div class="mascot">🦊🌟</div>
+
+      <div>
+        <h1>Hai, Nasya! 💚</h1>
+        <p>Selamat datang di dunia belajar yang menyenangkan!</p>
+        <p>Belajar, selesaikan misi, dan kumpulkan bintangmu.</p>
+      </div>
+    </section>
+
+    <h2 class="menu-title">🎨 Pilih kelas belajar</h2>
+
+    <section class="cards">
+      <article class="card menu-card">
+        <div class="emoji">🇬🇧</div>
+        <h3>English Fun</h3>
+        <p>Belajar kosakata bahasa Inggris.</p>
+        <button onclick="openClass('english')">Mulai belajar</button>
+      </article>
+
+      <article class="card menu-card">
+        <div class="emoji">🇨🇳</div>
+        <h3>Mandarin Ceria</h3>
+        <p>Kenali kata dan pinyin Mandarin.</p>
+        <button onclick="openClass('mandarin')">Mulai belajar</button>
+      </article>
+
+      <article class="card menu-card">
+        <div class="emoji">🕌</div>
+        <h3>Hafalan Surat</h3>
+        <p>Baca surat, latin, arti, dan audio.</p>
+        <button onclick="openClass('quran')">Buka Al-Qur'an</button>
+      </article>
+
+      <article class="card menu-card">
+        <div class="emoji">🔢</div>
+        <h3>Matematika Ceria</h3>
+        <p>Asah kemampuan berhitung.</p>
+        <button onclick="openClass('math')">Mulai kuis</button>
+      </article>
+
+      <article class="card menu-card">
+        <div class="emoji">📚</div>
+        <h3>Bahasa Indonesia</h3>
+        <p>Belajar kata dan kalimat.</p>
+        <button onclick="openClass('indonesia')">Mulai belajar</button>
+      </article>
+
+      <article class="card menu-card">
+        <div class="emoji">🌍</div>
+        <h3>Sains dan Alam</h3>
+        <p>Kenali alam dan dunia sekitar.</p>
+        <button onclick="openClass('science')">Mulai belajar</button>
+      </article>
+
+      <article class="card menu-card">
+        <div class="emoji">💻</div>
+        <h3>Coding Academy</h3>
+        <p>Jadi programmer cilik.</p>
+        <button onclick="openClass('coding')">Mulai coding</button>
+      </article>
+
+      <article class="card menu-card">
+        <div class="emoji">🌟</div>
+        <h3>Misi Harian</h3>
+        <p>Selesaikan kebiasaan baik.</p>
+        <button onclick="openClass('missions')">Lihat misi</button>
+      </article>
+
+      <article class="card menu-card">
+        <div class="emoji">🐷</div>
+        <h3>Tabungan Impian</h3>
+        <p>Catat tabungan dan target.</p>
+        <button onclick="openClass('savings')">Buka tabungan</button>
+      </article>
+
+      <article class="card menu-card">
+        <div class="emoji">🎮</div>
+        <h3>Game Seru</h3>
+        <p>Main sambil belajar dan kumpulkan bintang.</p>
+        <button onclick="gamesPage()">Main game</button>
+      </article>
+    </section>
+
+    <section class="card lesson" id="lesson">
+      <h2>🧩 Yuk, belajar!</h2>
+      <p>Pilih kelas di atas untuk memulai petualangan belajar.</p>
+    </section>
+  </main>
+
+  <footer>Made with ❤️ for Nasya</footer>
+
+  <script>
+    function gamesPage() {
+      const lesson = document.getElementById("lesson");
+      let score = 0;
+      let round = 0;
+      const total = 5;
+      let expected = 0;
+
+      function showGame() {
+        if (round >= total) {
+          lesson.innerHTML = `
+            <div class="celebration">
+              <div class="celebration-emoji">🎮🏆</div>
+              <h2>Game selesai, Nasya!</h2>
+              <h3>Skor: ${score} dari ${total}</h3>
+              <p>${"⭐".repeat(score)}</p>
+              <button id="playGameAgain">Main lagi 🔄</button>
+            </div>`;
+
+          document.getElementById("playGameAgain")
+            .addEventListener("click", gamesPage);
+          return;
+        }
+
+        const a = Math.floor(Math.random() * 10) + 1;
+        const b = Math.floor(Math.random() * 10) + 1;
+        expected = a + b;
+
+        const options = [
+          expected,
+          expected + 1 + Math.floor(Math.random() * 3),
+          Math.max(0, expected - 2)
+        ];
+
+        options.sort(() => Math.random() - 0.5);
+
+        lesson.innerHTML = `
+          <h2>🎮 Game Seru: Tebak Hasil</h2>
+          <p>Babak ${round + 1} dari ${total} · Skor ${score}</p>
+
+          <div class="progress">
+            <span style="width:${round / total * 100}%"></span>
+          </div>
+
+          <div class="tip">
+            Pilih jawaban yang benar untuk mendapatkan bintang!
+          </div>
+
+          <h2 style="text-align:center;font-size:32px">
+            ${a} + ${b} = ?
+          </h2>
+
+          <div class="answer-grid">
+            ${options.map(n =>
+              `<button class="answer" data-value="${n}">${n}</button>`
+            ).join("")}
+          </div>
+
+          <p id="gameFeedback" class="feedback" aria-live="polite"></p>
+
+          <button id="gameNext" hidden>
+            ${round === total - 1 ? "Lihat hasil 🏆" : "Lanjut ➜"}
+          </button>
+        `;
+
+        document.querySelectorAll("#lesson .answer").forEach(button => {
+          button.addEventListener("click", () => {
+            document.querySelectorAll("#lesson .answer")
+              .forEach(b => b.disabled = true);
+
+            const right = Number(button.dataset.value) === expected;
+
+            if (right) {
+              score++;
+
+              if (typeof earnStar === "function") {
+                earnStar();
+              }
+
+              button.classList.add("correct");
+
+              document.getElementById("gameFeedback").textContent =
+                "Benar! Hebat, Nasya! ⭐";
+            } else {
+              document.querySelectorAll("#lesson .answer").forEach(b => {
+                if (Number(b.dataset.value) === expected) {
+                  b.classList.add("correct");
+                }
+              });
+
+              button.classList.add("wrong");
+
+              document.getElementById("gameFeedback").textContent =
+                `Belum tepat. Jawabannya ${expected}. Semangat ya!`;
+            }
+
+            document.getElementById("gameNext").hidden = false;
+          });
+        });
+
+        document.getElementById("gameNext")
+          .addEventListener("click", () => {
+            round++;
+            showGame();
+          });
+      }
+
+      showGame();
+    }
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>

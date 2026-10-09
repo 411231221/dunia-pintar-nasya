@@ -1,0 +1,439 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  background: #f2fbf5;
+  color: #29483a;
+}
+
+.topbar {
+  background: #c9f2d9;
+  padding: 18px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  box-shadow: 0 3px 12px #0000000a;
+}
+
+.brand {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.stats {
+  background: white;
+  padding: 10px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+main {
+  max-width: 1100px;
+  margin: auto;
+  padding: 24px 18px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  align-items: center;
+  background: linear-gradient(120deg, #fff0bd, #ffe1ed, #e7e1ff);
+  padding: 30px;
+  border-radius: 25px;
+  margin-bottom: 28px;
+}
+
+.hero h1 {
+  font-size: clamp(28px, 5vw, 44px);
+  margin: 8px 0;
+}
+
+.hero p {
+  line-height: 1.6;
+}
+
+.mascot {
+  font-size: clamp(55px, 10vw, 100px);
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 10px;
+}
+
+.muted {
+  color: #64786c;
+}
+
+.class-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.class-card {
+  border: 2px solid transparent;
+  background: white;
+  color: #29483a;
+  text-align: left;
+  padding: 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 5px 16px #244b320c;
+  font: inherit;
+  transition: 0.2s;
+}
+
+.class-card:hover {
+  transform: translateY(-4px);
+  border-color: #82d5a3;
+}
+
+.class-card:focus-visible,
+button:focus-visible {
+  outline: 3px solid #e8b83d;
+  outline-offset: 3px;
+}
+
+.class-card span {
+  font-size: 38px;
+}
+
+.class-card h3 {
+  margin: 10px 0 6px;
+}
+
+.class-card p {
+  margin: 0;
+  color: #64786c;
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.btn {
+  background: #319768;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 17px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 5px 5px 5px 0;
+  font-size: 15px;
+}
+
+.btn:hover {
+  filter: brightness(0.94);
+}
+
+.pink {
+  background: #c65d85;
+}
+
+.light {
+  background: #e7f5ec;
+  color: #2c6748;
+}
+
+.lesson {
+  background: white;
+  padding: 25px;
+  margin-top: 25px;
+  border-radius: 22px;
+  min-height: 250px;
+  box-shadow: 0 5px 18px #244b320a;
+}
+
+.tip {
+  background: #fff7df;
+  border-radius: 14px;
+  padding: 15px;
+  line-height: 1.6;
+}
+
+.answer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 12px;
+  margin: 18px 0;
+}
+
+.answer {
+  background: #f2fbf5;
+  color: #29483a;
+  border: 2px solid #d5ebdc;
+  border-radius: 13px;
+  padding: 14px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.answer:hover:not(:disabled) {
+  border-color: #319768;
+}
+
+.answer:disabled {
+  cursor: default;
+  opacity: 0.7;
+}
+
+.feedback {
+  min-height: 26px;
+  font-weight: bold;
+  margin: 12px 0;
+}
+
+.progress {
+  height: 12px;
+  background: #e5eee7;
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 12px 0;
+}
+
+.progress span {
+  display: block;
+  height: 100%;
+  background: #52b77d;
+  transition: width 0.2s;
+}
+
+.row-item {
+  background: #f2fbf5;
+  border-radius: 12px;
+  padding: 14px;
+  margin: 10px 0;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.hanzi {
+  font-size: 27px;
+  font-weight: bold;
+}
+
+input[type="number"],
+input[type="text"] {
+  padding: 12px;
+  border: 2px solid #d5ebdc;
+  border-radius: 10px;
+  font-size: 16px;
+  width: 100%;
+  max-width: 400px;
+  margin: 8px 0;
+}
+
+.mission {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 14px 0;
+  line-height: 1.5;
+}
+
+.mission input {
+  width: 18px;
+  height: 18px;
+  accent-color: #319768;
+}
+
+.code {
+  background: #17251f;
+  color: #e2f8e9;
+  border-radius: 14px;
+  padding: 16px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  line-height: 1.6;
+}
+
+.small {
+  color: #64786c;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  color: #64786c;
+}
+
+@media (max-width: 750px) {
+  .class-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .mascot {
+    text-align: left;
+    font-size: 60px;
+  }
+}
+
+@media (max-width: 430px) {
+  .class-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 22px;
+  }
+}
+
+/* ==============================
+   PERAYAAN KUIS DUNIA PINTAR
+============================== */
+
+.celebration {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding: 30px 18px;
+  border-radius: 22px;
+  background: linear-gradient(
+    135deg,
+    #effff4,
+    #fff9dc,
+    #fff0f7
+  );
+  animation: celebrationAppear 0.6s ease-out;
+}
+
+.celebration h2 {
+  color: #21865b;
+  margin: 12px 0;
+}
+
+.celebration-emoji {
+  font-size: 52px;
+  animation: trophyBounce 0.8s ease-in-out infinite alternate;
+}
+
+.score-card {
+  position: relative;
+  z-index: 2;
+  max-width: 320px;
+  margin: 22px auto;
+  padding: 22px;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 8px 25px rgba(35, 120, 80, 0.12);
+}
+
+.score-card h3 {
+  margin-top: 0;
+  color: #52665a;
+}
+
+.big-score {
+  font-size: 46px;
+  font-weight: 800;
+  color: #269768;
+  margin: 10px 0;
+}
+
+.reward-stars {
+  position: relative;
+  z-index: 2;
+  font-size: 26px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+  margin: 16px 0;
+}
+
+.celebration .btn {
+  position: relative;
+  z-index: 3;
+  margin: 5px;
+}
+
+/* Konfeti jatuh */
+.confetti-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.confetti-piece {
+  position: absolute;
+  top: -35px;
+  font-size: 22px;
+  animation: confettiFall 3s ease-in forwards;
+}
+
+/* Animasi */
+@keyframes celebrationAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes trophyBounce {
+  from {
+    transform: translateY(0) rotate(-6deg);
+  }
+
+  to {
+    transform: translateY(-9px) rotate(6deg);
+  }
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(500px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Tampilan HP */
+@media (max-width: 600px) {
+  .celebration {
+    padding: 24px 12px;
+  }
+
+  .celebration-emoji {
+    font-size: 42px;
+  }
+
+  .big-score {
+    font-size: 38px;
+  }
+
+  .celebration .btn {
+    margin: 5px 2px;
+  }
+}
+
+/* Mengurangi animasi jika diperlukan */
+@media (prefers-reduced-motion: reduce) {
+  .celebration,
+  .celebration-emoji,
+  .confetti-piece {
+    animation: none;
+  }
+}
